@@ -4,7 +4,7 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     console.log(email, password);
   };
@@ -15,7 +15,7 @@ const Login = () => {
       </div>
       <div className="register-form">
         <h1 className="form-title display-3 ">Login</h1>
-        <form id="login" onSubmit={handleSubmit}>
+        <form id="login" onSubmit={handleLogin}>
           <div className="mb-3 ">
             <label htmlFor="firstName" className="form-label">
               Email
