@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { signIn } from "../auth/firebase.js";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    // console.log(email, password);
+    signIn(email, password, navigate)
   };
   return (
     <div className="d-flex justify-content-center">
