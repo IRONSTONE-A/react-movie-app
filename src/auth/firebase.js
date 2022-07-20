@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 
@@ -24,12 +24,13 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-export const createUser = asycn(email, password) => {
+export const createUser = async(email, password,navigate ) => {
     //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
     try {
         let userCredential = await createUserWithEmailAndPassword(auth, email, password)
         console.log(userCredential);
-    } catch (error) {
+        navigate("/")
+    } catch (err) {
         console.log(err)
     }
 

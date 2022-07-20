@@ -1,15 +1,20 @@
-import {useState} from "react";
+import { useState } from "react";
+import { createUser } from "../auth/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [firstName, setFirstName] = useState()
-  const [lastName, setLastName] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(firstName, lastName, email, password);
-  }
+    createUser(email, password, navigate);
+    
+  };
   return (
     <div className="d-flex justify-content-center">
       <div className="form-img d-none d-md-block">
@@ -28,7 +33,7 @@ const Register = () => {
               id="firstName"
               placeholder="Enter your first name.."
               required
-              onChange={(e)=> setFirstName(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
           <div className="mb-3 ">
@@ -41,7 +46,7 @@ const Register = () => {
               id="lastName"
               placeholder="Enter your last name.."
               required
-              onChange={(e)=> setLastName(e.target.value)}
+              onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <div className="mb-3 ">
@@ -54,7 +59,7 @@ const Register = () => {
               id="email"
               placeholder="Enter your email adress.."
               required
-              onChange={(e)=> setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-3 ">
@@ -67,10 +72,9 @@ const Register = () => {
               id="password"
               placeholder="Enter your password.."
               required
-              onChange={(e)=> setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          
 
           <input
             type="submit"
