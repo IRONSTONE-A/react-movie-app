@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 //* https://console.firebase.google.com/ => project settings
 //! firebase console settings bölümünden firebaseconfig ayarlarını al
 const firebaseConfig = {
-    apiKey: "AIzaSyB2vWuf7Rrr_uD--9PhU4C7Im4G5puxIX8",
-    authDomain: "ironstone-movie-app.firebaseapp.com",
-    projectId: "ironstone-movie-app",
-    storageBucket: "ironstone-movie-app.appspot.com",
-    messagingSenderId: "580448354139",
-    appId: "1:580448354139:web:81426702b93be9c134a47e"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
