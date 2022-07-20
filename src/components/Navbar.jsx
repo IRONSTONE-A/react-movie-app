@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const currentUser = {displayName: "Ironstone A."}
+  const navigate = useNavigate();
+  // const currentUser = { displayName: "Ironstone A." };
+  const currentUser = false;
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
@@ -10,16 +12,19 @@ const Navbar = () => {
             <h4>Recat Movie App</h4>
           </Link>
           <div className="d-flex text-white align-items-center">
-          {currentUser ? (
-            <div>
-            <h5 className="mb-0 text-capitalize">{currentUser.displayName}</h5>
-            <button className="ms-2 btn btn-outline-light">Logout</button>
-            </div>
-
-
-          ):null}
-
-
+            {currentUser ? (
+              <>
+                <h5 className="mb-0 text-capitalize">
+                  {currentUser.displayName}
+                </h5>
+                <button className="ms-2 btn btn-outline-light">Logout</button>
+              </>
+            ) : (
+              <>
+                <button className="ms-2 btn btn-outline-light" onClick={()=> navigate("/login")}>Login</button>
+                <button className="ms-2 btn btn-outline-light" onClick={()=> navigate("/register")}>Register</button>
+              </>
+            )}
           </div>
         </div>
       </nav>
