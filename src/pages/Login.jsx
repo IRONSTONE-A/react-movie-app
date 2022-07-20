@@ -1,4 +1,13 @@
+import { useState } from "react";
+
 const Login = () => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+  };
   return (
     <div className="d-flex justify-content-center">
       <div className="form-img d-none d-md-block">
@@ -6,7 +15,7 @@ const Login = () => {
       </div>
       <div className="register-form">
         <h1 className="form-title display-3 ">Login</h1>
-        <form id="login">
+        <form id="login" onSubmit={handleSubmit}>
           <div className="mb-3 ">
             <label htmlFor="firstName" className="form-label">
               Email
@@ -17,6 +26,7 @@ const Login = () => {
               id="email"
               placeholder="Enter your email adress.."
               required
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-3 ">
@@ -29,8 +39,10 @@ const Login = () => {
               id="password"
               placeholder="Enter your password.."
               required
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <div className="link">Forgot Password?</div>
 
           <input
             type="submit"
@@ -38,6 +50,9 @@ const Login = () => {
             value="Login"
           />
         </form>
+        <button className="btn btn-primary form-control">
+          Continue with Google
+        </button>
       </div>
     </div>
   );
