@@ -3,8 +3,11 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 
 const Navbar = () => {
-  const {currentUser} = useContext(AuthContext)
+  
   const navigate = useNavigate();
+  const {currentUser} = useContext(AuthContext)
+  //* with custom hook
+  // const {currentUser} = useContext();
   // const currentUser = { displayName: "Ironstone A." };
   // const currentUser = false;
   return (
