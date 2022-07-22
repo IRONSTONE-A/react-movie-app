@@ -1,4 +1,4 @@
-#firebase kullanmalıyım, register ve login e dikkat
+#firebase in diğer metodlarını uygulayacağım ..
 
 # Getting Started with Create React App
 
